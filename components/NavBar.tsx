@@ -1,7 +1,7 @@
 // components/Navbar.tsx
 "use client";
 
-import { Github, Linkedin, Moon, Sun, Sparkles } from "lucide-react";
+import { Github, Linkedin, Moon, Sun, Sparkles, Download } from "lucide-react";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -46,6 +46,21 @@ export default function Navbar() {
         </motion.div>
 
         <div className="flex items-center gap-1">
+          {/* Resume Download Button */}
+          <motion.a
+            href="/Resume_26.pdf"
+            download="Vamsi_Krishna_Vissapragada_Resume.pdf"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-medium text-sm hover:shadow-lg hover:shadow-indigo-500/50 transition-all mr-2"
+          >
+            <Download size={16} />
+            <span className="hidden sm:inline">Resume</span>
+          </motion.a>
+
           {[
             { href: "https://github.com/vamsi-1234", icon: Github, label: "GitHub" },
             { href: "https://www.linkedin.com/in/vamsi-krishna-vissapragada-801602171", icon: Linkedin, label: "LinkedIn" }
